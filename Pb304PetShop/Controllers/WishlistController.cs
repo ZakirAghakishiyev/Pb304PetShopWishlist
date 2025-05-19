@@ -57,8 +57,6 @@ namespace Pb304PetShop.Controllers
         public IActionResult AddToWishlist(int id)
         {
             var product = _dbContext.Products.Find(id);
-            if (product == null)
-                return BadRequest();
 
             var wishlist = GetWishlist();
 

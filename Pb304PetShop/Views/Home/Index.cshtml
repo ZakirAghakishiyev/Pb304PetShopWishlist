@@ -9,7 +9,7 @@
         <div class="swiper main-swiper">
             <div class="swiper-wrapper">
 
-                @foreach(var item in sliders)
+                @foreach (var item in sliders)
                 {
                     <div class="swiper-slide py-5">
                         <div class="row banner-content align-items-center">
@@ -93,7 +93,7 @@
 
         <div class="products-carousel swiper">
             <div class="swiper-wrapper">
-                @foreach(var item in products)
+                @foreach (var item in products)
                 {
                     <div class="swiper-slide">
                         <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
@@ -122,7 +122,7 @@
                                         <a asp-controller="basket" asp-action="addToBasket" asp-route-id="@item.Id" class="btn-cart me-3 px-4 pt-3 pb-3">
                                             <h5 class="text-uppercase m-0">Add to Cart</h5>
                                         </a>
-                                        <a href="#" class="btn-wishlist px-4 pt-3 ">
+                                        <a href="#" class="btn-wishlist px-4 pt-3 " onclick="toggleWishlist(@item.Id)" m>
                                             <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
                                         </a>
                                     </div>
@@ -167,7 +167,7 @@
         </div>
 
         <div class="isotope-container row">
-            @foreach(var item in products)
+            @foreach (var item in products)
             {
                 <div class="item @item.Category?.Name col-md-4 col-lg-3 my-4">
                     <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
@@ -196,7 +196,7 @@
                                     <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
                                         <h5 class="text-uppercase m-0">Add to Cart</h5>
                                     </a>
-                                    <a href="#" class="btn-wishlist px-4 pt-3 " onclick="toggleWishlist(@item.Id)" >
+                                    <a href="#" class="btn-wishlist px-4 pt-3 " onclick="toggleWishlist(@item.Id)">
                                         <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
                                     </a>
                                 </div>
@@ -210,7 +210,7 @@
 
             }
 
-          @*   <div class="item dog col-md-4 col-lg-3 my-4">
+            @*   <div class="item dog col-md-4 col-lg-3 my-4">
                 <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
                     New
                 </div>
@@ -1010,7 +1010,7 @@
 </section>
 
 <script>
-    function ToggleWishlist(productId) {
+    function toggleWishlist(productId) {
         fetch('/Home/ToggleWishlistItem', {
             method: 'POST',
             headers: {
